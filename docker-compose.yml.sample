@@ -10,7 +10,7 @@ services:
     volumes:
       - wordpress-db:/var/lib/mysql
   fpm:
-    build: iamdb/fpm-wordpress
+    build: iamdb/fpm-bedrock-wordpress
     container_name: fpm
     links:
       - mariadb:mariadb
@@ -30,7 +30,7 @@ services:
       # ADMIN_EMAIL: test@test.com
       # SITE_TITLE: Wordpress
   nginx:
-    image: iamdb/nginx-wordpress
+    image: iamdb/nginx-bedrock-wordpress
     container_name: nginx
     links:
       - fpm:fpm
