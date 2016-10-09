@@ -1,0 +1,43 @@
+version: '2'
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: w0rdPr3ssdb
+      MYSQL_DATABASE: wordpress
+    volumes:
+      - wordpress-db:/var/lib/mysql
+  fpm:
+    build: iamdb/fpm-wordpress
+    container_name: fpm
+    links:
+      - mariadb:mariadb
+    volumes:
+      - /var/www/html
+    environment:
+      DB_NAME: wordpress
+      DB_USER: root
+      DB_PASSWORD: w0rdPr3ssdb
+      DB_HOST: mariadb
+      WP_ENV: development
+      WP_HOME: http://<ip or hostname>
+      WP_SITEURL: http://<ip or hostname>/wp
+      # uncomment below for new installations
+      # ADMIN_USER: admin
+      # ADMIN_PASS: password
+      # ADMIN_EMAIL: test@test.com
+      # SITE_TITLE: Wordpress
+  nginx:
+    image: iamdb/nginx-wordpress
+    container_name: nginx
+    links:
+      - fpm:fpm
+    volumes_from:
+      - fpm
+    ports:
+      - "80:80"
+volumes:
+  wordpress-db:
+    driver: local
