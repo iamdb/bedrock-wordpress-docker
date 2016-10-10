@@ -18,7 +18,7 @@ It can be used/configured in a variety of ways:
 * You can just mount the `web/app` folder with your plugins, themes and uploads and let the container deal with Wordpress.
 * You can make a custom dockerized Wordpress installation by forking this repo or by using `iamdb/fpm-bedrock-wordpress` as a starting image and managing your install using composer (example below).
 
-The `nginx` and `fpm` containers are provided separately for flexibility, but there's a sample `docker-compose.yml` file that's provided which should have everything you need to get up and running quickly.
+The `nginx` and `fpm` containers are provided separately for flexibility, but there's a sample `docker-compose.yml` file that's provided which should have everything you need to get up and running quickly. They are also built automatically on Docker Hub using this repo at `iamdb/nginx-bedrock-wordpress` and `iamdb/fpm-bedrock-wordpress`.
 
 ## docker-compose.yml
 Change the `WP_HOME` and `WP_SITEURL` variables to your values. Add an admin username, password and email and a site title as shown in the `docker-compose.yml` file to create a fresh install.
