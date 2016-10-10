@@ -4,6 +4,7 @@ RUN addgroup -g 82 www-data && adduser -S -u 82 -G www-data www-data
 
 RUN apk --update --no-cache add git 
 
+# Install custom nginx config
 RUN mv /etc/nginx /etc/nginx-og && \
     git clone https://github.com/iamdb/wordpress-nginx.git /etc/nginx && \
     sed -i "s|user www www;|user www-data www-data;|g" /etc/nginx/nginx.conf && \
