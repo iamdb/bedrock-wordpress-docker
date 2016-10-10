@@ -10,7 +10,7 @@ services:
     volumes:
       - wordpress-db:/var/lib/mysql
   fpm:
-    build: iamdb/fpm-bedrock-wordpress
+    image: iamdb/fpm-bedrock-wordpress
     container_name: fpm
     links:
       - mariadb:mariadb
