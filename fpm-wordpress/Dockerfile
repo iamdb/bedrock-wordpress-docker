@@ -1,4 +1,4 @@
-FROM php:fpm-alpine
+FROM php:7.0-fpm-alpine
 
 ENV DB_NAME=wordpress \
 	DB_USER=root \

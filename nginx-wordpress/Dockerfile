@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM nginx:1.10-alpine
 
 RUN addgroup -g 82 www-data && adduser -S -u 82 -G www-data www-data
 

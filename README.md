@@ -5,6 +5,7 @@
 * [wp-cli](https://wp-cli.org) support
 * Increased security out of the box.
 * Utilizes [custom nginx config](https://github.com/perusio/wordpress-nginx).
+* php 7.0, mariadb 10.1 and nginx 1.10
 
 This is meant to be a starting off point. A way to quickly get a highly configured, as close to production-ready Wordpress install up and running very quickly while providing a flexible way of handling site files (plugins, themes, etc.) and creating consistent installations across servers. This is meant to be a tool, not a solution. It's also my tool, so it's pretty opinionated at the moment, but I'm open to ideas, suggestions. A lot of this is pieced together from great work done by others as noted in the files.
 
@@ -59,5 +60,6 @@ You can disable the password by providing an `ALLOW_INSTALL` environment variabl
 
 ## Goals
 
-* Add S3 support
-* Add [dictator](https://github.com/danielbachhuber/dictator) support
+* Let's Encrypt support
+* S3 support
+* [dictator](https://github.com/danielbachhuber/dictator) support

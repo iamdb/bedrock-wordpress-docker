@@ -2,7 +2,7 @@ version: '2'
 
 services:
   mariadb:
-    image: mariadb
+    image: mariadb:10.1
     container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: w0rdPr3ssdb
