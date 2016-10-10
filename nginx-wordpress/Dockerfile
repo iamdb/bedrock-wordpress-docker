@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
 RUN addgroup -g 82 www-data && adduser -S -u 82 -G www-data www-data
 
@@ -13,3 +13,8 @@ RUN mv /etc/nginx /etc/nginx-og && \
     mkdir -p /etc/nginx/logs/ /etc/nginx/sites-enabled/ && touch /etc/nginx/logs/error.log
 COPY default.conf /etc/nginx/sites-available/default.conf
 RUN ln -sf /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
+
+# init script and CMD
+COPY init.sh /opt/
+RUN chmod +x /opt/init.sh
+CMD /opt/init.sh && exec nginx -g "daemon off;"

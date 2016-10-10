@@ -22,8 +22,8 @@ services:
       DB_PASSWORD: w0rdPr3ssdb
       DB_HOST: mariadb
       WP_ENV: development
-      WP_HOME: http://<ip or hostname>
-      WP_SITEURL: http://<ip or hostname>/wp
+      WP_HOME: http://192.168.99.100
+      WP_SITEURL: http://192.168.99.100/wp
       # uncomment below for new installations
       # ADMIN_USER: admin
       # ADMIN_PASS: password
@@ -38,6 +38,9 @@ services:
       - fpm
     ports:
       - "80:80"
+    environment:
+      # uncomment below to remove installation password
+      # ALLOW_INSTALL: "yes"
 volumes:
   wordpress-db:
     driver: local

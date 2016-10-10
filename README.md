@@ -51,6 +51,12 @@ RUN su-exec www-data composer require \
 	&& composer install
 ```
 
+## A note about the nginx configuraiton
+
+It makes all urls that end in `install.php` as well as the `readme.html` require a password. This is done for security reasons. This does not currently create a password. All core, plugin and theme installations must be done by making a new base image or through a wp-cli command.
+
+You can disable the password by providing an `ALLOW_INSTALL` environment variable with a string value of `yes`. You can see an example of this in the `docker-compose.yml` file.
+
 ## Goals
 
 * Add S3 support
